@@ -1,11 +1,20 @@
 
 interface ButtonProps{
     children: React.ReactNode;
-    onClick():void;
+    onClick?():void;
+    type :"button" | "submit"
+    disabled : boolean
+    className: string
+}
+
+Button.defaultProps = {
+    type:"button",
+    disabled : false,
+    className: "btn btn-primary"
 }
 
 export default function Button(props:ButtonProps){
     return(
-        <div onClick={props.onClick} className="btn btn-primary">{props.children} </div>
+        <button disabled={props.disabled} type={props.type} onClick={props.onClick} className={props.className}>{props.children} </button>
     )
 }

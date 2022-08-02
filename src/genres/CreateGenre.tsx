@@ -1,16 +1,18 @@
-import { useNavigate } from "react-router-dom";
-import Button from "../utils/Button";
+import GenreForm from "./GenreForm";
 
 
 export default function CreateGenre(){
-    const navigate = useNavigate();
 
     return(
         <>
-            <div>Creer un nouveau genre de film</div> 
-            <Button onClick={()=>{
-                navigate('/genres')
-            }}>enregistrer</Button>
+            <h3>Creer un nouveau genre de film</h3> 
+            <GenreForm model={{name:""}} onSubmit={
+                async (value)=>{
+                    await new Promise (r => setTimeout(r, 1 ))
+                    console.log(value)
+                }
+            } />
+                    
         </>
     )
 }

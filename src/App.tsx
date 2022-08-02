@@ -15,11 +15,12 @@ import CreateMovie from './movies/CreateMovie';
 import EditMovie from './movies/EditMovie';
 import FilterMovies from './movies/FilterMovies';
 import RedirectToLandingPage from './utils/RedirectToLandingPage';
+import configureValidations from './utils/Validation';
 
- 
+configureValidations(); 
+
 function App() {
 
-  
 
   return (
 
@@ -31,20 +32,20 @@ function App() {
           
           <Route  path='/genres' element={<IndexGenres/>} />
             <Route  path='/genres/create' element={<CreateGenre/>} />
-            <Route  path='/genres/edit/:id1(\\d+)' element={<EditGenre/>} />
+            <Route  path='/genres/edit/:id' element={<EditGenre/>} />
           
           <Route  path='/movies/filter' element={<FilterMovies/>} />
 
           <Route  path='//movietheathers' element={<IndexMovieTheathers/>} />
             <Route  path='//movietheathers/create' element={<CreateMovietheather/>} />
-            <Route  path='//movietheathers/edit/:id(\\d+)' element={<EditMovietheather/>} />
+            <Route  path='//movietheathers/edit/:id' element={<EditMovietheather/>} />
 
           <Route  path='/actors' element={<IndexActors/>} />
             <Route  path='/actors/create' element={<CreateActor/>} />
-            <Route  path='/actors/edit/:id(\\d+)' element={<EditActor/>} />
+            <Route  path='/actors/edit/:id' element={<EditActor/>} />
           
             <Route  path='/movies/create' element={<CreateMovie/>} />
-            <Route  path='/amovies/edit/:id(\\d+)' element={<EditMovie/>} />
+            <Route  path='/amovies/edit/:id' element={<EditMovie/>} />
           
             {/* chemin qui n'existe pas */}
             <Route  path='*' element={<RedirectToLandingPage/>} />
